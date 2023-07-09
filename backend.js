@@ -55,6 +55,10 @@ app.get("/",(req,res)=>{
     });
 });
 
+app.get('/resume', (req, res) => {
+    res.redirect('https://drive.google.com/file/d/1_uxondy6SS-uQOZ9ZvWz_XhUOuHVM2Mg/view?usp=drive_link');
+});
+
 app.get('*',(req,res)=>{
     //we will send the error page in all 
     //other cases
