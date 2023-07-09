@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "../../DSA Questions"
+		},
+		{
+			"path": "../../WebDev"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WebDev",
+		"files.associations": {
+			"__split_buffer": "cpp",
+			"deque": "cpp",
+			"list": "cpp",
+			"string": "cpp",
+			"vector": "cpp",
+			"random": "cpp"
+		}
+	}
+}

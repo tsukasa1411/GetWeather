@@ -1,0 +1,20 @@
+{
+  "name": "weatherproj",
+  "version": "1.0.0",
+  "description": "My first Project",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vaibhav",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "events": "^3.3.0",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "npm": "^9.8.0",
+    "requests": "^0.3.0",
+    "url": "^0.11.1"
+  }
+}
