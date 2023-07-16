@@ -27,14 +27,13 @@ app.get("/",(req,res)=>{
 
     axios.request(config)
     .then((response) => {
-        const d=new Date();
-        const date=d.toLocaleTimeString();
+        const date=new Date();
         //lets decide the weather icon on the 
         //app based on the condition and time
         let icon="fa-solid fa-sun fa-beat";
         let iconstyle="color: #eeeb44;";
 
-        if(date.getHours()>19||date.getHours()<5){
+        if(date.getHours()>0||date.getHours()<11){
             icon="fa-solid fa-moon" ;
             iconstyle="color: #989aa0;";
         }
