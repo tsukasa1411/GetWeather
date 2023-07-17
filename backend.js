@@ -26,13 +26,29 @@ app.get("/",(req,res)=>{
 
     axios.request(config)
     .then((response) => {
-        const date=new Date();
+        const date = new Date();
+
+    // Get the options for the Indian time zone
+    const options = {
+      timeZone: 'Asia/Kolkata', // 'Asia/Kolkata' represents the Indian time zone
+      hour12: true, // Set to false if you want 24-hour format
+      weekday: 'long', // Display full weekday name
+      year: 'numeric', // Display full year
+      month: 'long', // Display full month name
+      day: 'numeric', // Display day of the month
+      hour: 'numeric', // Display hour (12-hour format)
+      minute: 'numeric', // Display minute
+      second: 'numeric', // Display second
+    };
+
+    // Convert the date to the Indian time zone
+    const indianDateTime = date.toLocaleString('en-IN', options);
         //lets decide the weather icon on the 
         //app based on the condition and time
         let icon="fa-solid fa-sun fa-beat";
         let iconstyle="color: #eeeb44;";
 
-        if(date.getHours()>23||date.getHours()<10){
+        if(indianDateTime.hour>19||indianDateTime.hour<5){
             icon="fa-solid fa-moon" ;
             iconstyle="color: #989aa0;";
         }
