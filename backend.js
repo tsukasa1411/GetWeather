@@ -15,7 +15,6 @@ const eventEmitter=new EventEmitter();
 app.set("view engine","hbs");
 
 app.get("/",(req,res)=>{
-    
     let apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+(req.query.city||'delhi')+'&appid=492f2388b7cae1c3e0dcf0f9c9056122'
 
     let config = {
@@ -27,29 +26,13 @@ app.get("/",(req,res)=>{
 
     axios.request(config)
     .then((response) => {
-        const d = new Date();
-
-// Get the options for the Indian time zone
-    const options = {
-      timeZone: 'Asia/Kolkata', // 'Asia/Kolkata' represents the Indian time zone
-      hour12: true, // Set to false if you want 24-hour format
-      weekday: 'long', // Display full weekday name
-      year: 'numeric', // Display full year
-      month: 'long', // Display full month name
-      day: 'numeric', // Display day of the month
-      hour: 'numeric', // Display hour (12-hour format)
-      minute: 'numeric', // Display minute
-      second: 'numeric', // Display second
-    };
-
-// Convert the date to the Indian time zone
-    const date = d.toLocaleString('en-IN', options);
+        const date=new Date();
         //lets decide the weather icon on the 
         //app based on the condition and time
         let icon="fa-solid fa-sun fa-beat";
         let iconstyle="color: #eeeb44;";
 
-        if(date.getHours()>19||date.getHours()<5){
+        if(date.getHours()>23||date.getHours()<10){
             icon="fa-solid fa-moon" ;
             iconstyle="color: #989aa0;";
         }
@@ -69,10 +52,6 @@ app.get("/",(req,res)=>{
     .catch((error) => {
         console.log(error);
     });
-});
-
-app.get('/resume', (req, res) => {
-    res.redirect('https://drive.google.com/file/d/1_uxondy6SS-uQOZ9ZvWz_XhUOuHVM2Mg/view?usp=drive_link');
 });
 
 app.get('*',(req,res)=>{
