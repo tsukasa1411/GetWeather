@@ -32,7 +32,7 @@ app.get("/",(req,res)=>{
         let icon="fa-solid fa-sun fa-beat";
         let iconstyle="color: #eeeb44;";
 
-        if(date.getHours()<=10){
+        if(date.getHours()>23||date.getHours()<10){
             icon="fa-solid fa-moon" ;
             iconstyle="color: #989aa0;";
         }
