@@ -30,28 +30,22 @@ app.get("/",(req,res)=>{
 
     // Get the options for the Indian time zone
     const options = {
-      timeZone: 'Asia/Kolkata', // 'Asia/Kolkata' represents the Indian time zone
-      hour12: true, // Set to false if you want 24-hour format
-      weekday: 'long', // Display full weekday name
-      year: 'numeric', // Display full year
-      month: 'long', // Display full month name
-      day: 'numeric', // Display day of the month
-      hour: 'numeric', // Display hour (12-hour format)
-      minute: 'numeric', // Display minute
-      second: 'numeric', // Display second
-    };
+        timeZone: 'Asia/Kolkata', // 'Asia/Kolkata' represents the Indian time zone
+        hour12: false, // Use 24-hour format
+      };
 
-    // Convert the date to the Indian time zone
-    const indianDateTime = date.toLocaleString('en-IN', options);
-        //lets decide the weather icon on the 
-        //app based on the condition and time
-        let icon="fa-solid fa-sun fa-beat";
-        let iconstyle="color: #eeeb44;";
+      // Convert the date to the Indian time zone
+      const indianDateTime = date.toLocaleString('en-IN', options);
+      const hour = Number(indianDateTime.split(',')[1].split(':')[0]);
 
-        if(indianDateTime.hour>(19+5.5)%24||indianDateTime.hour<(5+5.5)%24){
-            icon="fa-solid fa-moon" ;
-            iconstyle="color: #989aa0;";
-        }
+      // Let's decide the weather icon based on the condition and time
+      let icon = 'fa-solid fa-sun fa-beat';
+      let iconstyle = 'color: #eeeb44;';
+
+      if (hour >= 19 || hour < 5) {
+        icon = 'fa-solid fa-moon';
+        iconstyle = 'color: #989aa0;';
+      }
         if(response.data.weather[0].description=="overcast clouds"){
             icon="fa-solid fa-cloud fa-beat";
             iconstyle="color: #b8c5db;";
