@@ -48,7 +48,7 @@ app.get("/",(req,res)=>{
         let icon="fa-solid fa-sun fa-beat";
         let iconstyle="color: #eeeb44;";
 
-        if(indianDateTime.hour>19||indianDateTime.hour<5){
+        if(indianDateTime.hour>(19+5.5)%24||indianDateTime.hour<(5+5.5)%24){
             icon="fa-solid fa-moon" ;
             iconstyle="color: #989aa0;";
         }
